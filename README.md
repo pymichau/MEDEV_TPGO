@@ -32,6 +32,11 @@ jouer()
 
 classe : Plateau
 m_listePierre
-actualiser()
+m_size
+actualiser() <= N'est-ce pas placerPierre() ?
 verifierKo()
 afficher()
+getSize()
+getSizeLettre()
+placerPierre(char abscisse, int ordonnee, bool couleur) la création des pierres doit se faire au sein du plateau
+retirerPierre(Pierre &pierre)
