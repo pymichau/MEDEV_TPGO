@@ -6,6 +6,8 @@
  */
 
 #include "Joueur.h"
+#include "Plateau.h"
+
 #include <iostream>
 #include <cstdlib>
 using namespace std
@@ -29,7 +31,6 @@ void Joueur::jouer(Plateau& goban)
     int ordonnee(0);
     bool fincoup(false);
     m_passe=false;// on repasse le compteur de passe à false
-    
     
     while (fincoup==false)
     {
