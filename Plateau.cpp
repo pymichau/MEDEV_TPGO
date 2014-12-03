@@ -60,10 +60,11 @@ char Plateau::getSizeLettre()
             break;
     }
 }
-
+/*******placerPierre*******/
+/*******C'est dans cette fonction qu'il faudrait introduire la verification d'un cas de ko je pense******/
 bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
 {
-    int position(0);
+    float position(0);
     
     position=ordonnee*0.1;
     switch (abscisse)
@@ -88,6 +89,8 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
                 position++;
                 break;
     }
+    position=position*10;//jusqu'ici position était un réel de 1,1 à 9,9.
+    //Il faut le passer de 11 à 99 pour pouvoir l'utiliser comme indice du tableau m_listePierre
     switch (m_listePierre[position])
     {
         case 'X' :
@@ -107,5 +110,54 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
                     break;
             }
             break;
+    }
+}
+
+/*******Afficher******/
+void Plateau::afficher()
+{
+    int i(0);
+    for (i=0;i++;i<100)
+    {
+        cout<<"|"<<m_listePierre[i];
+        switch (m_size)
+        {
+            case 5 :
+                switch (i)
+                {
+                    case 15 :
+                    case 25 :
+                    case 35 :
+                    case 45 :
+                        cout<<"|"<<endl;
+                        //le tableau n'aura pas de separateurs verticaux entre les lignes...
+                        i=i+5;
+                        //on passe de la case 15 à la case 21
+                        break;
+                    case 55 :
+                        cout<<"|"<<endl;
+                        i=100;
+                        //On a affiche la derniere case, on met i à 100 pour sortir de la boucle for
+                        break;
+                }
+                break;
+            case 9 :
+                switch (i)
+                {
+                    case 19 :
+                    case 29 :
+                    case 39 :
+                    case 49 :
+                    case 59 :
+                    case 69 :
+                    case 79 :
+                    case 89 :
+                    case 99 :
+                        cout<<"|"<<endl;
+                        i++;
+                        //on passe de la case 19 à la case 21
+                        break;
+                }
+        }
     }
 }
