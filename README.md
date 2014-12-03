@@ -3,11 +3,9 @@ MEDEV_TPGO
 
 TP de MEDEV sur le go
 
-consignes pour git :
-va dans le dossier contenant le projet netbeans (cd .. pour remonter à la racide, puis cd nomdudossier pour aller jusqu'au dossier
-git init pour créer un fichier git là ou tu es
-git remote add nomDuProjet https://github.com/pymichau/MEDEV_TPGO.git
-pour te connecter au fichier distant
+Commandes git utiles que j'oublie toujours :
+git commit -m "commentaire sur ce qui a été fait"
+git push -u [nomDuProjet] [Branche dans laquelle on fait le push]
 
 =======================
 classe : Groupe
