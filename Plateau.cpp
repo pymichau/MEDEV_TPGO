@@ -6,8 +6,7 @@
  */
 
 #include "Plateau.h"
-#include "Joueur.h"
-#include "Pierre.h"
+
 
 #include <iostream>
 #include <cstdlib>
@@ -121,19 +120,22 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
 void Plateau::afficher()
 {
     int i(0);
-    for (i=0;i++;i<100)
+    while (i<100)
     {
+        //cout<<"and there";
         if (i==0)
         {
             switch (m_size)
+            {
                     case 5 :
-                        cout<<'  A----B----C----D----E----F'<<endl<<'0 ';
+                        cout<<"  A    B    C    D    E    F"<<endl<<"0 ";
                         break;
                     case 9 :
-                        cout<<'  A----B----C----D----E----F----G----H----I----J'<<endl<<'0 ';
+                        cout<<"  A    B    C    D    E    F    G    H    I    J"<<endl<<"0 ";
                         break;
-                            
-                        
+            }
+
+
         }
         cout<<m_listePierre[i];
         switch (m_size)
@@ -148,7 +150,7 @@ void Plateau::afficher()
                     case 45 :
                         cout<<endl;
                         //on arrive au bout du plateau, on passe à la ligne suivante
-                        cout<<'  |    |    |    |    |    |'<<endl<<((i-5)/10)+1<<' ';
+                        cout<<"  |    |    |    |    |    |"<<endl<<((i-5)/10)+1<<" ";
                         i=i+4;
                         //on passe de la case 5 à la case 9 (qui ne sera pas affichée)
                         //puis à la fin de la boucle à la 10 (qui sera affichée)
@@ -159,9 +161,9 @@ void Plateau::afficher()
                         //On a affiche la derniere case, on met i à 100 pour sortir de la boucle for
                         break;
                     default :
-                        cout<<'----';
+                        cout<<"----";
                         /*On place les pierres entre les cases, on devrait donc obtenir qqch du genre :
-                           A----B----C----D----E----F                          
+                           A----B----C----D----E----F
                          0 O----X----O----+----O----+
                            |    |    |    |    |    |
                          1 X----+----+----O----X----O
@@ -188,8 +190,8 @@ void Plateau::afficher()
                     case 79 :
                     case 89 :
                         cout<<endl;
-                        cout<<'  |    |    |    |    |    |    |    |    |    |'<<endl;
-                        cout<<(i+1)/10<<' ';
+                        cout<<"  |    |    |    |    |    |    |    |    |    |"<<endl;
+                        cout<<(i+1)/10<<" ";
                         //i++;
                         //on passe de la case 19 à la case 21
                         //EDIT : en fait un tableau de 9x9 cases possède 10x10 intersections
@@ -199,10 +201,11 @@ void Plateau::afficher()
                         cout<<endl;
                         break;
                     default :
-                        cout<<'----';
+                        cout<<"----";
                         break;
                 }
         }
+        i++;
     }
 }
 

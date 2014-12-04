@@ -5,8 +5,9 @@
  * Created on 1 décembre 2014, 16:53
  */
 
-#include <Pierre.cpp>
-#include <Joueur.cpp>
+#include "Pierre.h"
+#include "Joueur.h"
+
 
 #include <vector>
 #include <cstdlib>
@@ -24,8 +25,8 @@ public:
     void afficher();
     int getSize();
     char getSizeLettre();
-    bool placerPierre(char abscisse, int ordonnee, bool couleur);
-    void retirerPierre(Pierre &pierre);
+    //bool placerPierre(char abscisse, int ordonnee, bool couleur);
+    //void retirerPierre(Pierre &pierre);
     // se substitue potentiellement à actualiser. ou est appelée par elle. 
     //doit incrémenter le compteur de pièces prises.
     int actualiser (float position );
