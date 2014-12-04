@@ -9,25 +9,32 @@
 #define	GROUPE_H
 
 #include <vector>
+#include <math.h>
 
 class Groupe {
 public:
-    Groupe();
+    Groupe(Pierre*);
     Groupe(const Groupe& orig);
-    virtual ~Groupe();
-    ajoutPierre(float);
-    presenceLiberteOppose();
-    verifierNbLiberte();
-    fusion();
+    ~Groupe();
+    ajoutPierre(Pierre*);
+    std::vector<Groupe*> presenceLiberteOppose(Pierre*); //renvoie les groupes adajcents de couleur opposé pour une pierre
+    std::vector<Groupe*> presenceLiberteCouleurPierre(Pierre*); // renvoie les groupes adjacents de la couleur de la pierre pour une pierre
+    std::vector<Groupe*> presenceLiberteCouleurPierre(Groupe*); //renvoie les groupes adjacents de la couleur de la pierre pour un groupe
+    bool verifierNbLiberte(Groupe*); // renvoie false si le groupe n'a plus de liberté
+    void fusion();
+    std::vector<Pierre*> getListePierre();
+    std::vector<float> getPositionLibertes();
+    static std::vector<Groupe*> m_groupeBlancAncien;
+    static std::vector<Groupe*> m_groupeNoirAncien;
+    static std::vector<Groupe*> m_groupeBlancNouveau;
+    static std::vector<Groupe*> m_groupeNoirNouveau;
 private:
+    Plateau* m_plateau;
     std::vector<Pierre*> m_listePierre;
     std::vector<float> m_positionLibertes;
     int m_idGroupe;
-    bool m_couleurGroupe;
-    static std::vector<Groupe*> m_GroupeBlancAncien;
-    static std::vector<Groupe*> m_GroupeNoirAncien;
-    static std::vector<Groupe*> m_GroupeBlancNouveau;
-    static std::vector<Groupe*> m_GroupeNoirNouveau;
+    bool m_couleurGroupe; //1 si Noir, 0 si Blanc
+
 
 };
 
