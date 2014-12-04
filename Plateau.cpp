@@ -68,25 +68,26 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
     position=ordonnee*0.1;
     switch (abscisse)
     {
-            case 'j' :
+            case 'J' :
                 position++;
-            case 'i': 
+            case 'I':
                 position++;
-            case 'h':
+            case 'H':
                 position++;
-            case 'g':
+            case 'G':
                 position++;
-            case 'f':
+            case 'F':
                 position++;
-            case 'e':
+            case 'E':
                 position++;
-            case 'd':
+            case 'D':
                 position++;
-            case 'c':
+            case 'C':
                 position++;
-            case 'b':
+                //cout<<"test"<<endl;
+            case 'B':
                 position++;
-            case 'a':
+            case 'A':
                 break;
                 //j=9, i=8, ... b=1, a=0
     }
@@ -100,7 +101,6 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
             return false;
             break;
         case '+' :
-            return true;
             switch (couleur)
             {
                 case true :
@@ -112,6 +112,7 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
                     Pierre(couleur, abscisse, ordonnee);//trouver comment nommer les pierres
                     break;
             }
+            return true;
             break;
     }
 }

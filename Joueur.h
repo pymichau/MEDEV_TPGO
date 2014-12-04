@@ -7,6 +7,7 @@
 
 #ifndef JOUEUR_H
 #define	JOUEUR_H
+#include "Plateau.h"
 
 class Joueur {
 public:

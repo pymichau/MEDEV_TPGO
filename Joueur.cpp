@@ -6,11 +6,11 @@
  */
 
 #include "Joueur.h"
-#include "Plateau.h"
+//#include "Plateau.h"
 
 #include <iostream>
 #include <cstdlib>
-using namespace std
+using namespace std;
 
 Joueur::Joueur(bool couleur) 
 {
