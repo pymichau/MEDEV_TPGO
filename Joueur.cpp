@@ -61,12 +61,12 @@ void Joueur::jouer(Plateau& goban)
     }
 }
 
-void passer()
+void Joueur::passer()
 {
     m_passe=true;
 }
 
-bool getPasse()
+bool Joueur::getPasse()
 {
     return m_passe;
 }

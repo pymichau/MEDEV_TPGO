@@ -25,7 +25,7 @@ Plateau::Plateau()
             case 5 :
                 exit=true;
                 m_listePierre.resize(55,'.');//on met un point dans les cases vides, un X dans les cases avec une pierre noire et un O dans les cases avec une pierre blanche
-                break
+                break;
             case 9 :
                 exit=true;
                 m_listePierre.resize(99,'.');
