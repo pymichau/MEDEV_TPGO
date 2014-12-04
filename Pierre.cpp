@@ -7,30 +7,32 @@
 
 #include "Pierre.h"
 
+
 Pierre::Pierre(bool couleur, char abscisse, int ordonnee) 
 {/*penser a bien construire l'input de la position*/
     m_couleur=couleur;
     m_position=ordonnee*0.1;
     switch (abscisse)
     {
-            case'i':
+            case 'J' :
                 m_position++;
-            case 'h':
+            case'I':
                 m_position++;
-            case 'g':
+            case 'H':
                 m_position++;
-            case 'f':
+            case 'G':
                 m_position++;
-            case 'e':
+            case 'F':
                 m_position++;
-            case 'd':
+            case 'E':
                 m_position++;
-            case 'c':
+            case 'D':
                 m_position++;
-            case 'b':
+            case 'C':
                 m_position++;
-            case 'a':
+            case 'B':
                 m_position++;
+            case 'A':
                 break;
     }               
 }
@@ -38,7 +40,8 @@ Pierre::Pierre(bool couleur, char abscisse, int ordonnee)
 Pierre::Pierre(const Pierre& orig) {
 }
 
-Pierre::~Pierre() {
+Pierre::~Pierre() 
+{
 }
 
 float Pierre::getPosition()

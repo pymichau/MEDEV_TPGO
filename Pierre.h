@@ -7,6 +7,7 @@
 
 #ifndef PIERRE_H
 #define	PIERRE_H
+#include "Plateau.h"
 
 class Pierre {
 public:
@@ -15,8 +16,8 @@ public:
     virtual ~Pierre();
     
     /********METHODES******/
-    getPosition();
-    getCouleur();
+    float getPosition();
+    bool getCouleur();
     
 private:
     /********ATTRIBUTS*******/

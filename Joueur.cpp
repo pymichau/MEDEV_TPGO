@@ -34,22 +34,22 @@ void Joueur::jouer(Plateau& goban)
     
     while (fincoup==false)
     {
-    while (ordonnee>9 || ordonnee<1) // pour empêcher la saisie de donnees incorrectes
+    while (ordonnee>9 || ordonnee=<1) // pour empêcher la saisie de donnees incorrectes
     {
-    cout<<"Dans quelle colonne souhaitez-vous poser votre pierre ?"<<endl;
-    cout<<"(indiquez un chiffre de 1 à "<<goban.getSize()<<")"<<endl;
-    cin>>ordonnee;
+    std::cout<<"Sur quelle ligne souhaitez-vous poser votre pierre ?"<<std::endl;
+    std::cout<<"(indiquez un chiffre de 0 à "<<goban.getSize()<<")"<<std::endl;
+    std::cin>>ordonnee;
     }
 
-    while (abscisse!='a' || abscisse!='b' || abscisse!='c' || abscisse!='d' || abscisse!='e' || abscisse!='f' || abscisse!='g' || abscisse!='h' || abscisse!='i' || )
+    while (abscisse!='A' || abscisse!='B' || abscisse!='C' || abscisse!='D' || abscisse!='E' || abscisse!='F' || abscisse!='G' || abscisse!='H' || abscisse!='I' || abscisse!='J' )
     {//la condition serait plus propre si je trouvais le moyen de dire abscisse "n'appartiens pas à l'ensemble"
-    cout<<endl<<"Dans quelle colonne souhaitez-vous poser votre pierre ?"<<endl;
-    cout<<"(indiquez une lettre de A à "<<goban.getSizeLettre()<<")"<<endl;
-    cin<<abscisse;
+    std::cout<<std::endl<<"Sur quelle colonne souhaitez-vous poser votre pierre ?"<<std::endl;
+    std::cout<<"(indiquez une lettre de A à "<<goban.getSizeLettre()<<")"<<std::endl;
+    std::cin<<abscisse;
 
-    if (goban.getSize==5)//si l'utilisateur tape une lettre de f à i et que le tableau est de 5*5, la saisie est incorrecte, cette boucle permet d'en tenir compte
+    if (goban.getSize==5)//si l'utilisateur tape une lettre de G à J et que le tableau est de 5*5, la saisie est incorrecte, cette boucle permet d'en tenir compte
     {
-        if (abscisse!='a' || abscisse!='b' || abscisse!='c' || abscisse!='d' || abscisse!='e')
+        if (abscisse!='A' || abscisse!='B' || abscisse!='C' || abscisse!='D' || abscisse!='E' || abscisse!='F')
         {
            abscisse='z';
         }
@@ -58,6 +58,7 @@ void Joueur::jouer(Plateau& goban)
     // tester ici si le coup est valide
     //On transmet les données au plateau pour placer la pierre
     fincoup=goban.placerPierre(abscisse, ordonnee, m_couleur);
+    //Si le coup est valide, goban renvoie true, sinon il renvoie false et on recommence la boucle
     }
 }
 
