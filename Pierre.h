@@ -7,7 +7,7 @@
 
 #ifndef PIERRE_H
 #define	PIERRE_H
-#include "Plateau.h"
+//#include "Plateau.h"
 
 class Pierre {
 public:

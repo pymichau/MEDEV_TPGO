@@ -6,6 +6,8 @@
  */
 
 #include "Plateau.h"
+#include "Groupe.h"
+#include "Pierre.h"
 
 
 #include <iostream>
@@ -70,30 +72,42 @@ char Plateau::getSizeLettre()
 bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
 {
     float position(0);
+    Pierre* pointeurPierre;
+    Groupe* pointeurGroupe;
     
     position=ordonnee*0.1;
     switch (abscisse)
     {
-            case 'J' :
+        case 'J' :
+        case 'j' :            
                 position++;
-            case 'I':
+        case 'I':
+        case 'i':
                 position++;
-            case 'H':
+        case 'h' :   
+        case 'H':
                 position++;
-            case 'G':
+        case 'G':
+        case 'g' :
                 position++;
-            case 'F':
+        case 'F':
+        case 'f' :
                 position++;
-            case 'E':
+        case 'E':
+        case 'e' :
                 position++;
-            case 'D':
+        case 'D':
+        case 'd' :
                 position++;
-            case 'C':
+        case 'C':
+        case 'c' :
                 position++;
                 //cout<<"test"<<endl;
-            case 'B':
+        case 'B':
+        case 'b' :
                 position++;
-            case 'A':
+        case 'A':
+        case 'a' :
                 break;
                 //j=9, i=8, ... b=1, a=0
     }
@@ -110,14 +124,17 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
             switch (couleur)
             {
                 case true :
-                    m_listePierreProvisoire[position]='X';
-                    Pierre(couleur, abscisse, ordonnee);//trouver comment nommer les pierres
+                    m_listePierreProvisoire[position]='X'; //on remplie le plateau
+                    pointeurPierre=new Pierre(couleur, abscisse, ordonnee);
                     break;
                 case false :
                     m_listePierreProvisoire[position]='O';
-                    Pierre(couleur, abscisse, ordonnee);//trouver comment nommer les pierres
+                    pointeurPierre=new Pierre(couleur, abscisse, ordonnee);
                     break;
+                //On a créé une nouvelle pierre dans un plateau provisoire. 
+                //Il faut modifier ce plateau en conséquence pour predre/retirer des groupes pour pouvoir tester le ko
             }
+            new Groupe (pointeurPierre, this);
             /*********vérification d'un cas de ko*********/
             if (m_listePierreProvisoire==m_listePierrePrecedent || m_listePierreProvisoire==m_listePierrePrecedentPrecedent)
             {
