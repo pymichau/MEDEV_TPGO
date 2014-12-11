@@ -5,8 +5,7 @@
  * Created on 1 décembre 2014, 16:53
  */
 
-#include "Pierre.h"
-#include "Joueur.h"
+#include "include.h"
 
 
 #include <vector>
