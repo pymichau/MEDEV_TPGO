@@ -18,10 +18,11 @@ using namespace std;
     
 int n=0;
 
-Groupe::Groupe(Pierre* _pierre, Plateau* _plateau) {
+Groupe::Groupe(Pierre* _pierre, Plateau* _plateau, Joueur* _joueur) {
     m_idGroupe = n;
     n++;
     ajoutPierre(_pierre);
+    m_joueur = _joueur;
     if (_pierre->getCouleur())
     {
        m_groupeNoirNouveau.push_back(&this); 
@@ -34,6 +35,7 @@ Groupe::Groupe(const Groupe& orig) {
 }
 
 Groupe::~Groupe(){
+    m_joueur->setPrise(true);
     for (int i=0; i<m_listePierre.size(); i++)
     {
         m_plateau->retirerPierre(m_listePierre[i]);

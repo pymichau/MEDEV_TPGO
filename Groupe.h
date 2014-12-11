@@ -30,6 +30,7 @@ public:
     static std::vector<Groupe*> m_groupeNoirNouveau;
 private:
     Plateau* m_plateau;
+    Joueur* m_joueur;
     std::vector<Pierre*> m_listePierre;
     std::vector<float> m_positionLibertes;
     int m_idGroupe;
