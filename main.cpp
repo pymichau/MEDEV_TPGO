@@ -4,7 +4,7 @@
  *
  * Created on 1 décembre 2014, 10:05
  */
-
+#include "GoogleTest"
 #include <cstdlib>
 #include "Plateau.h"
 #include "Groupe.h"
