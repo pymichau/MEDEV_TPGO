@@ -25,14 +25,14 @@ Joueur::Joueur(const Joueur& orig) {
 Joueur::~Joueur() {
 }
 
-void Joueur::jouer(Plateau& goban)
+Pierre* Joueur::jouer(Plateau& goban)
 {
     char abscisse('z');
     int ordonnee(0);
-    bool fincoup(false);
+    Pierre* fincoup(NULL);
     m_passe=false;// on repasse le compteur de passe à false
     
-    while (fincoup==false)
+    while (fincoup==NULL)
     {
         while (abscisse!='A' || abscisse!='B' || abscisse!='C' || abscisse!='D' || abscisse!='E' || abscisse!='F' || abscisse!='G' || abscisse!='H' || abscisse!='I' || abscisse!='J'..
                 .. abscisse!='a' || abscisse!='b' || abscisse!='c' || abscisse!='d' || abscisse!='e' || abscisse!='f' || abscisse!='g' || abscisse!='h' || abscisse!='i' || abscisse!='j')
@@ -59,9 +59,10 @@ void Joueur::jouer(Plateau& goban)
 
     // tester ici si le coup est valide -> test effectué dans la classe plateau
     //On transmet les données au plateau pour placer la pierre
-    fincoup=goban.placerPierre(abscisse, ordonnee, m_couleur);
-    //Si le coup est valide, goban renvoie true, sinon il renvoie false et on recommence la boucle
+    fincoup=goban->placerPierre(abscisse, ordonnee, m_couleur);
+    //Si le coup est valide, goban renvoie un pointeur sur une pierre, sinon il renvoie NULL et on recommence la boucle
     }
+    return fincoup;
 }
 
 void Joueur::passer()

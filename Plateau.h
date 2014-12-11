@@ -25,7 +25,7 @@ public:
     void afficher();
     int getSize();
     char getSizeLettre();
-    bool placerPierre(char abscisse, int ordonnee, bool couleur);
+    Pierre* placerPierre(char abscisse, int ordonnee, bool couleur);
     void retirerPierre(Pierre &pierre);
     //se substitue potentiellement à actualiser. ou est appelée par elle. 
     //doit incrémenter le compteur de pièces prises.
