@@ -13,10 +13,10 @@
 
 class Groupe {
 public:
-    Groupe(Pierre*);
+    Groupe(Pierre*, Plateau*, Joueur*);
     Groupe(const Groupe& orig);
     ~Groupe();
-    ajoutPierre(Pierre*);
+    void ajoutPierre(Pierre*);
     std::vector<Groupe*> presenceLiberteOppose(Pierre*); //renvoie les groupes adajcents de couleur opposé pour une pierre
     std::vector<Groupe*> presenceLiberteCouleurPierre(Pierre*); // renvoie les groupes adjacents de la couleur de la pierre pour une pierre
     std::vector<Groupe*> presenceLiberteCouleurPierre(Groupe*); //renvoie les groupes adjacents de la couleur de la pierre pour un groupe
