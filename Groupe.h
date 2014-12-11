@@ -10,6 +10,7 @@
 
 #include <vector>
 #include <math.h>
+#include "include.h"
 
 class Groupe {
 public:

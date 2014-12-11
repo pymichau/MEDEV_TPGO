@@ -5,9 +5,8 @@
  * Created on 1 décembre 2014, 12:00
  */
 
-#include "Pierre.h"
-#include "Plateau.h"
-#include "Groupe.h"
+#include "groupe.h"
+#include "Joueur.h"
 
 
 using namespace std;
@@ -40,6 +39,7 @@ Groupe::~Groupe(){
     for (int i=0; i<m_listePierre.size(); i++)
     {
         m_plateau->retirerPierre(m_listePierre[i]);
+        m_joueur->capturePierre();
     }
 }
 
