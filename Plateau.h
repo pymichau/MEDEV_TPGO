@@ -21,7 +21,7 @@ public:
     Plateau();
     Plateau(const Plateau& orig);
     virtual ~Plateau();
-    bool verifierKo();
+    //bool verifierKo(); cette fonctionalité sera finalement faite par placerPierre
     void afficher();
     int getSize();
     char getSizeLettre();
@@ -35,6 +35,10 @@ public:
 private:
     int m_size;
     std::vector<char> m_listePierre;//liste des pierres
+    std::vector<char> m_listePierreProvisoire;
+    std::vector<char> m_listePierrePrecedent;
+    std::vector<char> m_listePierrePrecedentPrecedent;
+    //ces 3 listes de pierres sont utilisées pour vérifier les situations de ko
     
 
 };

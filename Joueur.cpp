@@ -55,7 +55,7 @@ void Joueur::jouer(Plateau& goban)
         }
     }
     }
-    // tester ici si le coup est valide
+    // tester ici si le coup est valide -> test effectué dans la classe plateau
     //On transmet les données au plateau pour placer la pierre
     fincoup=goban.placerPierre(abscisse, ordonnee, m_couleur);
     //Si le coup est valide, goban renvoie true, sinon il renvoie false et on recommence la boucle

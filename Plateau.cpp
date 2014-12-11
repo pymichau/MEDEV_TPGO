@@ -23,11 +23,17 @@ Plateau::Plateau()
         {
             case 5 :
                 exit=true;
-                m_listePierre.resize(55,'+');//on met un point dans les cases vides, un X dans les cases avec une pierre noire et un O dans les cases avec une pierre blanche
+                m_listePierre.resize(55,'+');//on met un + dans les intersections vides, un X dans les cases avec une pierre noire et un O dans les cases avec une pierre blanche
+                m_listePierreProvisoire.resize(55,'+');
+                m_listePierrePrecedent.resize(55,'+');
+                m_listePierrePrecedentPrecedent.resize(55,'+');
                 break;
             case 9 :
                 exit=true;
                 m_listePierre.resize(99,'+');
+                m_listePierreProvisoire.resize(99,'+');
+                m_listePierrePrecedent.resize(99,'+');
+                m_listePierrePrecedentPrecedent.resize(99,'+');
                 break;
             default :
                 cout<<"Saisie incorrecte. Entrez le nombre de case de coté du plateau avec les touches du pave numerique."<<endl;
@@ -104,15 +110,28 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
             switch (couleur)
             {
                 case true :
-                    m_listePierre[position]='X';
+                    m_listePierreProvisoire[position]='X';
                     Pierre(couleur, abscisse, ordonnee);//trouver comment nommer les pierres
                     break;
                 case false :
-                    m_listePierre[position]='O';
+                    m_listePierreProvisoire[position]='O';
                     Pierre(couleur, abscisse, ordonnee);//trouver comment nommer les pierres
                     break;
             }
-            return true;
+            /*********vérification d'un cas de ko*********/
+            if (m_listePierreProvisoire==m_listePierrePrecedent || m_listePierreProvisoire==m_listePierrePrecedentPrecedent)
+            {
+                cout<<"Coup invalide, vous engendrez un ko (plateau identique a un etat precedent)";
+                m_listePierreProvisoire=m_listePierre;
+                return false;
+            }
+            else
+            {
+                m_listePierrePrecedentPrecedent=m_listePierrePrecedent;
+                m_listePierrePrecedent=m_listePierre;
+                m_listePierre=m_listePierreProvisoire;
+                return true;
+            }
             break;
     }
 }
