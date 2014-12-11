@@ -5,9 +5,10 @@
  * Created on 1 décembre 2014, 12:00
  */
 
-#include "Groupe.h"
 #include "Pierre.h"
 #include "Plateau.h"
+#include "Groupe.h"
+
 
 using namespace std;
 
@@ -25,9 +26,9 @@ Groupe::Groupe(Pierre* _pierre, Plateau* _plateau, Joueur* _joueur) {
     m_joueur = _joueur;
     if (_pierre->getCouleur())
     {
-       m_groupeNoirNouveau.push_back(&this); 
+       m_groupeNoirNouveau.push_back(this); 
     }
-    else m_groupeBlancNouveau.push_back(&this);
+    else m_groupeBlancNouveau.push_back(this);
     m_plateau = _plateau;
 }
 
@@ -52,11 +53,12 @@ vector<float> Groupe::getPositionLibertes(){
 
 void Groupe::ajoutPierre(Pierre* _pierre){
     m_listePierre.push_back(_pierre);
-    for (int z=0; z<m_positionLibertes.size(); z++) // boucle permettant d'éliminer la liberté du groupe occupée par la pierre nouvellement posée
+    for (int z = 0 ; z < m_positionLibertes.size(); z++)
+    //for (vector<float>::iterator z = m_positionLibertes.begin() ; z != m_positionLibertes.end(); z++) // boucle permettant d'éliminer la liberté du groupe occupée par la pierre nouvellement posée
     {
         if (m_positionLibertes[z]==_pierre->getPosition())
         {
-            m_positionLibertes.erase(z);
+            m_positionLibertes.erase(m_positionLibertes.begin()+z);
             break;
         }
     }
@@ -96,7 +98,8 @@ void Groupe::ajoutPierre(Pierre* _pierre){
     {
         for (int j=0; j<m_groupeNoirAncien[i]->getListePierre().size();j++) //On parcourt toutes les pierres noires
         {
-            if (!(m_groupeNoirAncien[i]->getListePierre()[j]->getPosition()==(_pierre->getPosition()-0.1))&&!((_pierre->getPosition()*10)%10==1)) //Si la pierre ne se situe pas à un bord et que sa gauche n'est pas occupée par une pierre noire
+            if (!(m_groupeNoirAncien[i]->getListePierre()[j]->getPosition()==(_pierre->getPosition()-0.1)||(int (_pierre->getPosition()*10)%10==1.0))) //Si la pierre ne se situe pas à un bord et que sa gauche n'est pas occupée par une pierre noire
+            
             {
                 for (int a=0; a<m_groupeBlancAncien.size(); a++)
                 {
@@ -109,7 +112,7 @@ void Groupe::ajoutPierre(Pierre* _pierre){
                     }
                 }
             }
-            if (!(m_groupeNoirAncien[i]->getListePierre()[j]->getPosition()==(_pierre->getPosition()+0.1))&&!((_pierre->getPosition()*10)%10==9)) //Si la pierre ne se situe pas à un bord et que sa droite n'est pas occupée par une pierre noire
+            if (!(m_groupeNoirAncien[i]->getListePierre()[j]->getPosition()==(_pierre->getPosition()+0.1))&&!((int (_pierre->getPosition()*10)%10==9))) //Si la pierre ne se situe pas à un bord et que sa droite n'est pas occupée par une pierre noire
             {
                 for (int a=0; a<m_groupeBlancAncien.size(); a++)
                 {
@@ -128,7 +131,7 @@ void Groupe::ajoutPierre(Pierre* _pierre){
 
 vector<Groupe*> Groupe::presenceLiberteOppose(Pierre* _pierre)
 {
-    vector<Groupe*> resultat = NULL;
+    vector<Groupe*> resultat ;
     if (m_couleurGroupe=true)
     {
         for (int i=0; i<m_groupeBlancAncien.size(); i++)
@@ -196,14 +199,14 @@ vector<Groupe*> Groupe::presenceLiberteOppose(Pierre* _pierre)
 
 bool Groupe::verifierNbLiberte(Groupe* _groupe)
 {
-    if (_groupe.getPositionLibertes().size()==0)
+    if (_groupe->getPositionLibertes().size()==0)
         return false;
     else return true;
 }
 
 vector<Groupe*> Groupe::presenceLiberteCouleurPierre(Pierre* _pierre)
 {
-    vector<Groupe*> resultat = NULL;
+    vector<Groupe*> resultat ;
     if (m_couleurGroupe=false)
     {
         for (int i=0; i<m_groupeBlancAncien.size(); i++)
@@ -276,7 +279,7 @@ vector<Groupe*> Groupe::presenceLiberteCouleurPierre(Groupe* _groupe){
         vector<Groupe*> resultatInter = presenceLiberteCouleurPierre(_groupe->getListePierre()[i]);
         for (int j=0; j<resultatInter.size(); j++)
         {
-            if (!(*resultatInter[j]==*_groupe))
+            if (!(&*resultatInter[j]==&*_groupe))
             {
                 resultat.push_back(resultatInter[j]);
             }
@@ -287,7 +290,7 @@ vector<Groupe*> Groupe::presenceLiberteCouleurPierre(Groupe* _groupe){
 
 void Groupe::fusion(){
     vector<Groupe*> resultatInter;
-    resultatInter = presenceLiberteCouleurPierre(&this);
+    resultatInter = presenceLiberteCouleurPierre(this);
     for (int i=0; i<resultatInter.size(); i++)
     {
         for(int j=0; j<resultatInter[i]->getListePierre().size(); j++)
