@@ -38,3 +38,5 @@ getSize()
 getSizeLettre()
 placerPierre(char abscisse, int ordonnee, bool couleur) la création des pierres doit se faire au sein du plateau
 retirerPierre(Pierre &pierre)
+
+Vidéo tuto pour googleTest : https://www.youtube.com/watch?v=TS2CTf11k1U
