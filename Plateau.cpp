@@ -41,6 +41,13 @@ Plateau::Plateau()
                 cout<<"Saisie incorrecte. Entrez le nombre de case de coté du plateau avec les touches du pave numerique."<<endl;
                 exit=false;
                 break;
+                ofstream fichier("HistoriquePartie.txt", ios::app);
+                if (fichier)
+                {
+                    fichier<<"Debut de la partie. Le plateau fait ";
+                    fichier<<m_size<<" cases par ";
+                    fichier<<m_size<<" cases."<<endl;
+                }
         }
     }
 }
@@ -148,6 +155,19 @@ Pierre* Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
                 m_listePierrePrecedentPrecedent=m_listePierrePrecedent;
                 m_listePierrePrecedent=m_listePierre;
                 m_listePierre=m_listePierreProvisoire;
+                ofstream fichier("HistoriquePartie.txt", ios::app);
+                if (fichier)
+                {
+                    if (couleur==true)
+                    {
+                        fichier<<"Blanc : "<<;
+                    }
+                    else
+                    {
+                        fichier<<"Noir : ";
+                    }
+                    fichier<<abscisse<<ordonnee<<endl;
+                }
                 return pointeurPierre;
             }
             break;

@@ -68,6 +68,19 @@ Pierre* Joueur::jouer(Plateau& goban)
 void Joueur::passer()
 {
     m_passe=true;
+    ofstream fichier("HistoriquePartie.txt", ios::app);
+                if (fichier)
+                {
+                    if (m_couleur==true)
+                    {
+                        fichier<<"Blanc "<<;
+                    }
+                    else
+                    {
+                        fichier<<"Noir ";
+                    }
+                    fichier<<"passe."<<endl;
+                }
 }
 
 bool Joueur::getPasse()
