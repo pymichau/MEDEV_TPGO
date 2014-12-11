@@ -84,3 +84,7 @@ void Joueur::getPrise()
 {
     return m_prise;
 }
+void Joueur::capturePierre()
+{
+    m_nbPierreCapture=m_nbPierreCapture+1;
+}

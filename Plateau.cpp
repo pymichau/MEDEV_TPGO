@@ -137,7 +137,7 @@ Pierre* Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
             //new Groupe (pointeurPierre, this);
             //finalement on crée le groupe ailleurs
             /*********vérification d'un cas de ko*********/
-            if (m_listePierreProvisoire==m_listePierrePrecedent || m_listePierreProvisoire==m_listePierrePrecedentPrecedent)
+            if (m_listePierreProvisoire[position]==m_listePierrePrecedentPrecedent[position])
             {
                 cout<<"Coup invalide, vous engendrez un ko (plateau identique a un etat precedent)";
                 m_listePierreProvisoire=m_listePierre;
@@ -247,8 +247,10 @@ void Plateau::afficher()
     }
 }
 
-/*void Plateau::retirerPierre(Pierre& pierre)
+void Plateau::retirerPierre(Pierre& pierre)
 {
     float position(0);
     position=pierre.getPosition()*10;//On récupère la position pour retrouver la case sur le plateau
-}*/
+    m_listePierre[position]='+';
+    ~pierre();
+}
