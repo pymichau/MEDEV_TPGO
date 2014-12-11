@@ -23,13 +23,18 @@ int main(int argc, char** argv) {
     Joueur black = new Joueur;
     Joueur white = new Joueur;
     Joueur current = new Joueur;
+    Pierre* tempPierre = new Pierre
+    int i;
+    bool verif;
+    
+    
     char answer;
     
     current = black; //black ones begin
     
     do  //game main cycle
     {
-       current.jouer(board); // play
+      
        
        cout<<"Passe?  (Y/N)"<<endl; //passe or not
        cin<<answer;
@@ -38,7 +43,25 @@ int main(int argc, char** argv) {
            current.passer()
        };
        
-        
+       do {
+       tempPierre = current.jouer(board); // play
+       Groupe* tempGroup  = new Groupe(tempPierre);
+       
+       
+       tempGroup.presenceLiberteOppose(tempPierre);
+       for (i = tempGroup.begin; i!= tempGroup.end; i++)
+       {
+           verif=verifierNbLiberte(tempGroup.i);
+           if (verif==false)
+               (~tempGroup.i);
+       }
+       
+       tempGroup->fusion();
+       
+          }
+       
+       while (!current.getPierre()&&!tempGroup.verifierNbLiberte);
+       
        if (current==black) //switching the turn
        {
            current=white
