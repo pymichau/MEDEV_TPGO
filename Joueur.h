@@ -24,7 +24,7 @@ public:
     bool getPasse(); // au début de chaque tour, le plateau check si les joueurs ont passé, s'ils ont passé tous les deux l'un après l'autre, les deux passe sont à true et c'est la fin de la partie
     void capturePierre();
     void setPrise(bool prise);
-    void getPrise();
+    bool getPrise();
     
 private:
     bool m_couleur;

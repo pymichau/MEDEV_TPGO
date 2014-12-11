@@ -93,7 +93,7 @@ void Joueur::setPrise(bool prise)
     m_prise=prise;
 }
 
-void Joueur::getPrise()
+bool Joueur::getPrise()
 {
     return m_prise;
 }
