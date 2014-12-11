@@ -7,6 +7,7 @@
 
 #include "Groupe.h"
 #include "Pierre.h"
+#include "Plateau.h"
 
 using namespace std;
 
