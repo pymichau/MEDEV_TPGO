@@ -5,8 +5,7 @@
  * Created on 1 décembre 2014, 16:53
  */
 
-#include "Pierre.h"
-#include "Joueur.h"
+#include "include.h"
 
 
 #include <vector>
@@ -25,10 +24,8 @@ public:
     void afficher();
     int getSize();
     char getSizeLettre();
-    bool placerPierre(char abscisse, int ordonnee, bool couleur);
-    void retirerPierre(Pierre* pierre);
-    //se substitue potentiellement à actualiser. ou est appelée par elle. 
-    //doit incrémenter le compteur de pièces prises.
+    Pierre* placerPierre(char abscisse, int ordonnee, bool couleur);
+    void retirerPierre(Pierre &pierre);
     int actualiser (float position );
     //à completer avec la classe groupe pour savoir la chaine d'appel qui appelle actualiser. 
     //J'ai mis int pour renvoyer le nombre de pièces prises. potentiellement pas utile.

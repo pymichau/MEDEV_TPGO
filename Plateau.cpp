@@ -69,10 +69,10 @@ char Plateau::getSizeLettre()
 }
 /*******placerPierre*******/
 /*******C'est dans cette fonction qu'il faudrait introduire la verification d'un cas de ko je pense******/
-bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
+Pierre* Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
 {
     float position(0);
-    Pierre* pointeurPierre;
+    Pierre* pointeurPierre(NULL);
     Groupe* pointeurGroupe;
     
     position=ordonnee*0.1;
@@ -118,7 +118,7 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
         case 'X' :
         case 'O' :
             cout<<"La case choisie n'est pas vide"<<endl;
-            return false;
+            return pointeurPierre;
             break;
         case '+' :
             switch (couleur)
@@ -134,20 +134,21 @@ bool Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
                 //On a créé une nouvelle pierre dans un plateau provisoire. 
                 //Il faut modifier ce plateau en conséquence pour predre/retirer des groupes pour pouvoir tester le ko
             }
-            new Groupe (pointeurPierre, this);
+            //new Groupe (pointeurPierre, this);
+            //finalement on crée le groupe ailleurs
             /*********vérification d'un cas de ko*********/
             if (m_listePierreProvisoire==m_listePierrePrecedent || m_listePierreProvisoire==m_listePierrePrecedentPrecedent)
             {
                 cout<<"Coup invalide, vous engendrez un ko (plateau identique a un etat precedent)";
                 m_listePierreProvisoire=m_listePierre;
-                return false;
+                return NULL;
             }
             else
             {
                 m_listePierrePrecedentPrecedent=m_listePierrePrecedent;
                 m_listePierrePrecedent=m_listePierre;
                 m_listePierre=m_listePierreProvisoire;
-                return true;
+                return pointeurPierre;
             }
             break;
     }
