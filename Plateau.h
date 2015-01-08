@@ -5,9 +5,6 @@
  * Created on 1 décembre 2014, 16:53
  */
 
-#include "include.h"
-
-using namespace std;
 
 #ifndef PLATEAU_H
 #define	PLATEAU_H
@@ -22,7 +19,7 @@ public:
     int getSize();
     char getSizeLettre();
     Pierre* placerPierre(char abscisse, int ordonnee, bool couleur);
-    void retirerPierre(Pierre& pierre);
+    void retirerPierre(Pierre* pierre);
     int actualiser (float position );
     //à completer avec la classe groupe pour savoir la chaine d'appel qui appelle actualiser. 
     //J'ai mis int pour renvoyer le nombre de pièces prises. potentiellement pas utile.

@@ -5,7 +5,7 @@
  * Created on 1 décembre 2014, 15:18
  */
 
-#include "Joueur.h"
+#include "include.h"
 //#include "Plateau.h"
 
 using namespace std;
@@ -21,6 +21,11 @@ Joueur::Joueur(const Joueur& orig) {
 }
 
 Joueur::~Joueur() {
+}
+
+bool Joueur::getColor()
+{
+    return m_couleur;
 }
 
 Pierre* Joueur::jouer(Plateau& goban)

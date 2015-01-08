@@ -8,7 +8,8 @@
 #ifndef GROUPE_H
 #define	GROUPE_H
 
-#include "include.h"
+//#include "include.h"
+//#include "Joueur.h"
 
 class Groupe {
 public:
@@ -19,7 +20,7 @@ public:
     std::vector<Groupe*> presenceLiberteOppose(Pierre*); //renvoie les groupes adajcents de couleur opposé pour une pierre
     std::vector<Groupe*> presenceLiberteCouleurPierre(Pierre*); // renvoie les groupes adjacents de la couleur de la pierre pour une pierre
     std::vector<Groupe*> presenceLiberteCouleurPierre(Groupe*); //renvoie les groupes adjacents de la couleur de la pierre pour un groupe
-    bool verifierNbLiberte(Groupe*); // renvoie false si le groupe n'a plus de liberté
+    bool verifierNbLiberte(); // renvoie false si le groupe n'a plus de liberté
     void fusion();
     std::vector<Pierre*> getListePierre();
     std::vector<float> getPositionLibertes();

@@ -5,7 +5,6 @@
  * Created on 1 décembre 2014, 10:05
  */
 //#include "GoogleTest"
-#include <cstdlib>
 #include "include.h"
 
 
@@ -16,14 +15,16 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
-    Plateau* board = new Plateau;
-    Joueur black = new Joueur;
-    Joueur white = new Joueur;
-    Joueur current = new Joueur;
-    Pierre* tempPierre = new Pierre
+    Plateau board;
+    Joueur* black = new Joueur(false);
+    Joueur* white = new Joueur(true);
+    Joueur* current;
+    Pierre* tempPierre;
     int i;
     bool verif;
-    
+    bool pierreCapturee;
+    vector<Groupe*> vecteurGroupe; //utilisé apres la liste des groupes adjacents de couleur opposée au groupe testé
+    Groupe* tempGroup;
     
     char answer;
     
@@ -34,44 +35,52 @@ int main(int argc, char** argv) {
       
        
        cout<<"Passe?  (Y/N)"<<endl; //passe or not
-       cin<<answer;
+       cin>>answer;
        if (answer=='Y') 
        {
-           current.passer()
-       };
-       
+           current->passer();
+       }
+       pierreCapturee = false;
        do {
-       tempPierre = current.jouer(board); // play
-       Groupe* tempGroup  = new Groupe(tempPierre);
+       tempPierre = current->jouer(board); // play
+       tempGroup  = new Groupe(tempPierre, &board, current);
        
        
-       tempGroup.presenceLiberteOppose(tempPierre);
-       for (i = tempGroup.begin; i!= tempGroup.end; i++)
+       vecteurGroupe=tempGroup->presenceLiberteOppose(tempPierre);
+       for (i=0; i<vecteurGroupe.size(); i++)
        {
-           verif=verifierNbLiberte(tempGroup.i);
+           verif = vecteurGroupe[i]->verifierNbLiberte();
            if (verif==false)
-               (~tempGroup.i);
+           {
+               for (int j=0; j<vecteurGroupe[i]->getListePierre().size(); j++)
+               {
+                   current->capturePierre();
+               }
+               vecteurGroupe[i]->~Groupe();
+               pierreCapturee = true;
+           }
+               
        }
        
        tempGroup->fusion();
        
           }
        
-       while (!current.getPierre()&&!tempGroup.verifierNbLiberte);
+       while (!pierreCapturee&&!tempGroup->verifierNbLiberte());
        
-       if (current==black) //switching the turn
+       if (current->getColor()==false) //switching the turn
        {
-           current=white
-       }  
+           current=white;
+       }
        else
        {
-           current=black
-       };
+           current=black;
+       }
        
-       board->afficher();    // showing the board
+       board.afficher();    // showing the board
   
     } 
      
-    while (!black.getPasse()&&!white.getPasse()); //game ends
+    while (!black->getPasse()&&!white->getPasse()); //game ends
     return 0;
 }

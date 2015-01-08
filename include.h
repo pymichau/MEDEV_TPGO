@@ -8,9 +8,9 @@
 #ifndef INCLUDE_H
 #define	INCLUDE_H
 
-#ifdef	__cplusplus
+/*#ifdef	__cplusplus
 extern "C" {
-#endif
+#endif*/
     
 #include <vector>
 #include <cmath>
@@ -26,9 +26,9 @@ extern "C" {
 
 
 
-#ifdef	__cplusplus
+/*#ifdef	__cplusplus
 }
-#endif
+#endif*/
 
 #endif	/* INCLUDE_H */
 

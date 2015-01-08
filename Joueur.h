@@ -7,7 +7,7 @@
 
 #ifndef JOUEUR_H
 #define	JOUEUR_H
-#include "include.h"
+//#include "include.h"
 
 class Joueur {
 public:
@@ -24,6 +24,7 @@ public:
     void capturePierre();
     void setPrise(bool prise);
     bool getPrise();
+    bool getColor();
     
 private:
     bool m_couleur;

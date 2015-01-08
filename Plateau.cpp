@@ -5,9 +5,7 @@
  * Created on 1 décembre 2014, 16:53
  */
 
-#include "Plateau.h"
-#include "Groupe.h"
-#include "Pierre.h"
+#include "include.h"
 
 
 #include <iostream>
@@ -160,7 +158,7 @@ Pierre* Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
                 {
                     if (couleur==true)
                     {
-                        fichier<<"Blanc : "<<;
+                        fichier<<"Blanc : ";
                     }
                     else
                     {
@@ -267,10 +265,10 @@ void Plateau::afficher()
     }
 }
 
-void Plateau::retirerPierre(Pierre& pierre)
+void Plateau::retirerPierre(Pierre* pierre)
 {
     float position(0);
-    position=pierre.getPosition()*10;//On récupère la position pour retrouver la case sur le plateau
+    position=pierre->getPosition()*10;//On récupère la position pour retrouver la case sur le plateau
     m_listePierre[position]='+';
-    ~pierre();
+    pierre->~Pierre();
 }

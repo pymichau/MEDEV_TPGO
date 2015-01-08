@@ -195,9 +195,9 @@ vector<Groupe*> Groupe::presenceLiberteOppose(Pierre* _pierre)
     return resultat;
 }
 
-bool Groupe::verifierNbLiberte(Groupe* _groupe)
+bool Groupe::verifierNbLiberte()
 {
-    if (_groupe->getPositionLibertes().size()==0)
+    if (this->getPositionLibertes().size()==0)
         return false;
     else return true;
 }

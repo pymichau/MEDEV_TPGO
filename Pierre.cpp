@@ -5,7 +5,7 @@
  * Created on 1 décembre 2014, 12:02
  */
 
-#include "Pierre.h"
+#include "include.h"
 
 
 Pierre::Pierre(bool couleur, char abscisse, int ordonnee) 
