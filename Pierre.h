@@ -11,7 +11,7 @@
 
 class Pierre {
 public:
-    Pierre(bool couleur, char abscisse, int ordonnee); //false pour blanc, true pour noir
+    Pierre(bool couleur, char abscisse, int ordonnee); //true pour blanc, false pour noir
     Pierre(const Pierre& orig);
     virtual ~Pierre();
     

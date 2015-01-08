@@ -12,7 +12,7 @@
 class Joueur {
 public:
     /******Constructeurs/destructeurs*****/
-    Joueur(bool couleur);
+    Joueur(bool couleur);//true pour blanc, false pour noir. sur le plateau O pour blanc et X pour noir
     Joueur(const Joueur& orig);
     virtual ~Joueur();
     

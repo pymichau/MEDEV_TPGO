@@ -129,11 +129,11 @@ Pierre* Plateau::placerPierre(char abscisse, int ordonnee, bool couleur)
             switch (couleur)
             {
                 case true :
-                    m_listePierreProvisoire[position]='X'; //on remplie le plateau
+                    m_listePierreProvisoire[position]='O'; //on remplie le plateau
                     pointeurPierre=new Pierre(couleur, abscisse, ordonnee);
                     break;
                 case false :
-                    m_listePierreProvisoire[position]='O';
+                    m_listePierreProvisoire[position]='X';
                     pointeurPierre=new Pierre(couleur, abscisse, ordonnee);
                     break;
                 //On a créé une nouvelle pierre dans un plateau provisoire. 
