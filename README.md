@@ -1,6 +1,12 @@
 MEDEV_TPGO
 ==========
 
+Couverture de Test
+==================
+Le fichier TestGroupe permet de tester les différentes méthodes de la classe groupe. Cependant, j'ai rencontrer un problème avec Git ce qui m'a obligé à le déplacer dans les sources.
+De plus je rencontre un problème d'include.
+
+
 TP de MEDEV sur le go
 
 Commandes git utiles que j'oublie toujours :
