@@ -8,7 +8,6 @@
 #ifndef JOUEUR_H
 #define	JOUEUR_H
 #include "include.h"
-#include <fstream>
 
 class Joueur {
 public:

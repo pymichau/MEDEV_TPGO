@@ -4,12 +4,9 @@
  *
  * Created on 1 décembre 2014, 10:05
  */
-#include "GoogleTest"
+//#include "GoogleTest"
 #include <cstdlib>
-#include "Plateau.h"
-#include "Groupe.h"
-#include "Joueur.h"
-#include "Pierre.h"
+#include "include.h"
 
 
 using namespace std;

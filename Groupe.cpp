@@ -5,9 +5,7 @@
  * Created on 1 décembre 2014, 12:00
  */
 
-#include "Pierre.h"
-#include "Plateau.h"
-#include "Groupe.h"
+#include "include.h"
 
 
 using namespace std;

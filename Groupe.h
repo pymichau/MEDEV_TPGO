@@ -8,8 +8,7 @@
 #ifndef GROUPE_H
 #define	GROUPE_H
 
-#include <vector>
-#include <math.h>
+#include "include.h"
 
 class Groupe {
 public:

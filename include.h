@@ -12,6 +12,12 @@
 extern "C" {
 #endif
     
+#include <vector>
+#include <cmath>
+#include <fstream>
+#include <iostream>
+#include <cstdlib>
+    
 #include "Pierre.h"
     class Plateau;
 #include "Joueur.h"
